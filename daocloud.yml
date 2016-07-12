@@ -1,0 +1,14 @@
+image: daocloud/ci-node:0.12
+
+services:
+    - mongodb
+
+env:
+    - MONGODB_INSTANCE_NAME = "node_club_dev"
+
+install:
+    - npm install -g mocha
+
+script:
+    - noda app.js
+    - mocha
