@@ -63,8 +63,8 @@ var config = {
   db: 'mongodb://' + username + ':' + password +'@' + addr + ':' + port + '/'+instance,
 
   // redis 配置，默认是本地
-  redis_host: '10.10.189.180',
-  redis_port: '54044',
+  redis_host: redis_addr,
+  redis_port: redis_port1,
   redis_db: 0,
 
   //session_secret: 'node_club_secret', // 务必修改
