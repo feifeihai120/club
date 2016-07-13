@@ -61,6 +61,15 @@ var urlinfo = require('url').parse(config.host);
 config.hostname = urlinfo.hostname || config.host;
 
 var app = express();
+app.use(session({
+  secret: config.session_secret,
+  store: new RedisStore({
+    port: config.redis_port,
+    host: config.redis_host,
+  }),
+  resave: true,
+  saveUninitialized: true,
+}));
 
 // configuration in all env
 app.set('views', path.join(__dirname, 'views'));
@@ -92,15 +101,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }));
 app.use(require('method-override')());
 app.use(require('cookie-parser')(config.session_secret));
 app.use(compress());
-app.use(session({
-  secret: config.session_secret,
-  store: new RedisStore({
-    port: config.redis_port,
-    host: config.redis_host,
-  }),
-  resave: true,
-  saveUninitialized: true,
-}));
+
 
 // oauth 中间件
 app.use(passport.initialize());
