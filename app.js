@@ -66,6 +66,7 @@ app.use(session({
   store: new RedisStore({
     port: config.redis_port,
     host: config.redis_host,
+    pass: config.redis_psd,
   }),
   resave: true,
   saveUninitialized: true,
