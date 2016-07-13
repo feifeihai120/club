@@ -91,7 +91,9 @@ exports.authUser = function (req, res, next) {
     }));
   });
 
-
+  if (req.session.user) {
+    ep.emit('get_user', req.session.user);
+  } else {
     var auth_token = req.signedCookies[config.auth_cookie_name];
     if (!auth_token) {
       return next();
@@ -100,5 +102,5 @@ exports.authUser = function (req, res, next) {
     var auth = auth_token.split('$$$$');
     var user_id = auth[0];
     UserProxy.getUserById(user_id, ep.done('get_user'));
-  
+  }
 };
