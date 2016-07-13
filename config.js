@@ -63,6 +63,7 @@ var config = {
   // redis 配置，默认是本地
   redis_host: redis_addr,
   redis_port: redis_port,
+  redis_psd : redis_password,
   redis_db: 0,
 
   //session_secret: 'node_club_secret', // 务必修改
