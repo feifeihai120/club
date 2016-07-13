@@ -3,6 +3,22 @@
  */
 
 var path = require('path');
+var express = require('express');
+var moment = require('moment');
+var mongoose = require('mongoose');
+
+// Constants
+var PORT = 80;
+
+// App
+var app = express();
+//服务器的mongodb
+
+var port = process.env.MONGODB_PORT_27017_TCP_PORT;
+var addr = process.env.MONGODB_PORT_27017_TCP_ADDR;
+var instance = process.env.MONGODB_INSTANCE_NAME;
+var password = process.env.MONGODB_PASSWORD;
+var username = process.env.MONGODB_USERNAME;
 
 var config = {
   // debug 为 true 时，用于本地调试
@@ -35,7 +51,8 @@ var config = {
   cnzz_tracker_id: '',
 
   // mongodb 配置
-  db: 'mongodb://127.0.0.1/node_club_dev',
+  //db: 'mongodb://127.0.0.1/node_club_dev',
+  db: 'mongodb://' + username + ':' + password +'@' + addr + ':' + port + '/' + instance,
 
   // redis 配置，默认是本地
   redis_host: '127.0.0.1',
