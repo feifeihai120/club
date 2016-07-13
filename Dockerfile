@@ -1,4 +1,13 @@
-FROM node:0.8
+FROM node:4.2.2
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json /usr/src/app/
+RUN npm install
+COPY . /usr/src/app
+
 
 EXPOSE 3000
+
+ENTRYPOINT node app.js
 
