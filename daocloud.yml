@@ -7,8 +7,7 @@ env:
     - MONGODB_INSTANCE_NAME = "node_club_dev"
 
 install:
-    - npm install -g mocha
+    - npm install
 
 script:
     - npm install
-    - mocha
