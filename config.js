@@ -67,7 +67,8 @@ var config = {
   redis_port: redis_port1,
   redis_db: 0,
 
-  session_secret: 'node_club_secret', // 务必修改
+  //session_secret: 'node_club_secret', // 务必修改
+  session_secret: redis_password, // 务必修改
   auth_cookie_name: 'node_club',
 
   // 程序运行的端口
