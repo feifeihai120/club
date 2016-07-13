@@ -20,6 +20,14 @@ var instance = process.env.MONGODB_INSTANCE_NAME;
 var password = process.env.MONGODB_PASSWORD;
 var username = process.env.MONGODB_USERNAME;
 
+var redis_port = process.env.REDIS_PORT;
+var redis_password = process.env.REDIS_PASSWORD;
+var redis_addr = process.env.REDIS_PORT_6379_TCP_ADDR;
+var redis_tcp = process.env.REDIS_PORT_6379_TCP;
+var redis_proto = process.env.REDIS_PORT_6379_TCP_PROTO;
+var redis_port1 = process.env.REDIS_PORT_6379_TCP_PORT;
+
+
 var config = {
   // debug 为 true 时，用于本地调试
   debug: true,
@@ -55,8 +63,8 @@ var config = {
   db: 'mongodb://' + username + ':' + password +'@' + addr + ':' + port + '/' + instance,
 
   // redis 配置，默认是本地
-  redis_host: '127.0.0.1',
-  redis_port: 6379,
+  redis_host: redis_addr,
+  redis_port: redis_port1,
   redis_db: 0,
 
   session_secret: 'node_club_secret', // 务必修改
