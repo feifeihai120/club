@@ -60,7 +60,7 @@ var config = {
 
   // mongodb 配置
   //db: 'mongodb://127.0.0.1/node_club_dev',
-  db: 'mongodb://' + username + ':' + password +'@' + addr + ':' + port + '/' + instance,
+  db: 'mongodb://' + username + ':' + password +'@' + addr + ':' + port + '/node_club_dev',
 
   // redis 配置，默认是本地
   redis_host: redis_addr,
