@@ -9,7 +9,5 @@ COPY . /usr/src/app
 
 EXPOSE 3000
 
-ENTRYPOINT make build
-
 ENTRYPOINT node app.js
 
