@@ -7,9 +7,6 @@ var express = require('express');
 var moment = require('moment');
 var mongoose = require('mongoose');
 
-// Constants
-var PORT = 80;
-
 // App
 var app = express();
 //服务器的mongodb
